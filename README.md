@@ -1,5 +1,8 @@
 # EchoLearn
 Major Project Based on IOT
 ok
-ok
-ok
+bye
+install vite
+install npm
+install axios
+install fontawesome
