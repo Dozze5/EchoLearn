@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  
+import React, { useState, useEffect } from 'react';  
 import './main.css';  
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  
 import { faMicrophone, faVolumeHigh } from '@fortawesome/free-solid-svg-icons';  
@@ -6,24 +6,72 @@ import axios from 'axios';
 
 const EchoLearnPage = () => {  
     const [selectedOption, setSelectedOption] = useState("Sentence");  
+    const [isRecording, setIsRecording] = useState(false);  
+    const [mediaRecorder, setMediaRecorder] = useState(null);  
+    const [audioBlob, setAudioBlob] = useState(null);  
+
+    useEffect(() => {  
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {  
+            navigator.mediaDevices.getUserMedia({ audio: true }).then((stream) => {  
+                const recorder = new MediaRecorder(stream);  
+                setMediaRecorder(recorder);  
+            });  
+        }  
+    }, []);  
 
     const handleOptionChange = (event) => {  
         setSelectedOption(event.target.value);  
         console.log(`Selected option: ${event.target.value}`);  
     };  
 
-    const handleMicrophoneClick = async () => {  
-        try {  
-            const response = await axios.get('https://dummyapi.io/data/api/user'); 
-            console.log('Microphone button clicked, API response:', response.data);  
-        } catch (error) {  
-            console.error('Error fetching data from API:', error);  
+    const handleMicrophoneClick = () => {  
+        if (isRecording) {  
+            stopRecording();  
+        } else {  
+            startRecording();  
+        }  
+    };  
+
+    const startRecording = () => {  
+        if (mediaRecorder) {  
+            mediaRecorder.start();  
+            setIsRecording(true);  
+            console.log('Recording started');  
+
+            mediaRecorder.ondataavailable = (event) => {  
+                setAudioBlob(event.data);  
+            };  
+        }  
+    };  
+
+    const stopRecording = async () => {  
+        if (mediaRecorder) {  
+            mediaRecorder.stop();  
+            setIsRecording(false);  
+            console.log('Recording stopped');  
+
+            // Upload the audio to the server after recording stops  
+            if (audioBlob) {  
+                const formData = new FormData();  
+                formData.append('audio', audioBlob);  
+
+                try {  
+                    const response = await axios.post('http://localhost:5000/upload', formData, {  
+                        headers: {  
+                            'Content-Type': 'multipart/form-data',  
+                        },  
+                    });  
+                    console.log('Audio uploaded, server response:', response.data);  
+                } catch (error) {  
+                    console.error('Error uploading audio:', error);  
+                }  
+            }  
         }  
     };  
 
     const handleSoundClick = async () => {  
         try {  
-            const response = await axios.get('https://dummyapi.io/data/api/user'); 
+            const response = await axios.get('https://dummyapi.io/data/api/user');  
             console.log('Play sentence sound, API response:', response.data);  
         } catch (error) {  
             console.error('Error fetching data from API:', error);  
@@ -62,10 +110,11 @@ const EchoLearnPage = () => {
                 <div className="speak-button-container">  
                     <button className="speak-button" onClick={handleMicrophoneClick}>  
                         <FontAwesomeIcon icon={faMicrophone} />  
+                        {isRecording ? ' Stop' : ' Start'}  
                     </button>  
                 </div>  
 
-                <p className="mic-instruction">Click the mic to speak</p>  
+                <p className="mic-instruction">Click the mic to {isRecording ? 'stop recording' : 'start recording'}</p>  
             </div>  
         </div>  
     );  
