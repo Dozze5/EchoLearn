@@ -1,4 +1,4 @@
-/* Dropdown styling */
+
 .page-container{
     background-color: #567CBD;
 }
@@ -12,7 +12,7 @@
     cursor: pointer;
 }
 
-/* Adjust dropdown to sit in the header */
+
 .header-section {
     display: flex;
     justify-content: space-between;
@@ -21,7 +21,6 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Speak Button as Circle */
 .speak-button-container {
     display: flex;
     justify-content: center;
