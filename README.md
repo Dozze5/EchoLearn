@@ -6,4 +6,4 @@ install vite
 install npm
 install axios
 install fontawesome
-added css
+
