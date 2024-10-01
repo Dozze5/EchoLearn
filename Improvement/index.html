@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Echo Learn</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-  <!-- Header Section -->
-  <header>
-    <nav id="nav">
-      <img src="../Improvement/logo.jpg" alt="Echo Learn Logo" class="logo">
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Pricing</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Echo Learn</title>
 
-  <!-- Main Section -->
-  <main>
-    <div class="container">
-      <!-- Sidebar -->
-      <div class="sidebar">
-        <div class="icon chatbot-icon">
+    <link rel="stylesheet" href="../static/css/style-new.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <!-- Header Section -->
+    <header>
+      <nav id="nav">
+        <img src="logo.jpg" alt="Echo Learn Logo" class="logo" />
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Pricing</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Section -->
+    <main>
+      <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+          <div class="icon chatbot-icon">
             <i class="fa-solid fa-robot"></i>
-        </div>
-        <div class="icon user-icon">
+          </div>
+          <div class="icon user-icon">
             <i class="fa-solid fa-volume-high"></i>
+          </div>
         </div>
-      </div>
 
-      <!-- Content Area -->
-      <div class="content">
-        <div class="text-box">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-        </div>
-        <div class="text-box">
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry...</p>
-        </div>
-        <div class="mic-button">
+        <!-- Content Area -->
+        <div class="content">
+          <div class="text-box" id="box1">
+            <p id="original_script">
+             Apna kaam banta bhad me jaye janta
+            </p>
+            <p id="ipa_script" >
+             ipa_script comes here tik hai na
+            </p>
+          </div>
+          <div class="text-box" id="box2">
+            <p id="recorded_ipa_script" >recorded_ipa_script comes here</p>
+            <p id="translated_script">translated_script come here not for future perpective</p>
+          </div>
+          <div class="mic-button">
             <i class="fa-solid fa-microphone"></i>
+          </div>
         </div>
       </div>
+    </main>
+    <div>
+      <button id="generate_sample">Generate</button>
     </div>
-  </main>
 
-  <!-- JS for any dynamic behavior -->
-  <script src="script.js"></script>
-</body>
+
+    <!-- JS for any dynamic behavior -->
+
+    <script src="../static/javascript/callbacks.js"></script>
+  </body>
 </html>
