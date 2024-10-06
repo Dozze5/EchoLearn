@@ -1,119 +1,299 @@
 /* General Styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F5F5F5;
+}
+
+/* Header */
+header {
+  background-color: #fff;
+  padding: 15px 30px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  gap: 50px;
+  height: 100%;
+}
+
+.logo {
+  width: 60px;
+  border-radius: 50%;
+  height: 60px;
+}
+
+/* Navigation Links Container */
+.nav-links {
+  list-style: none; /* Remove bullet points */
+  display: flex;
+  gap: 30px; /* Space between links */
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation Links */
+.nav-links li a {
+  text-decoration: none; /* Remove underline */
+  color: #333; /* Default text color */
+  font-size: 18px; /* Adjust font size */
+  font-weight: 500; /* Medium weight */
+  display: inline-block; /* Ensure the links are treated as block elements */
+  transition: transform 0.3s ease, color 0.3s ease; /* Ensure both transform and color have smooth transitions */
+}
+
+/* Hover Effects */
+.nav-links li a:hover {
+  color: #007BFF; /* Change color on hover */
+  transform: scale(1.2); /* Slightly enlarge the link */
+}
+
+
+
+
+main {
+  width: 100%;
+  height: calc(100vh - 100px);
+  background-color: black;
+}
+
+.nav-links {
+  list-style: none;
+  margin-top: 15px;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+  font-size: 16px;
+}
+
+/* Main Section */
+.container {
+  display: flex;
+  height: 100%;
+  margin: auto;
+  width: 1200px;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+}
+
+.sidebar {
+  background-color: #E0E0E0;
+  padding: 30px;
+  height: 60%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 60px;
   
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #F5F5F5;
-  }
+}
+
+.icon {
+  font-size: 32px;
+  color: #333;
+  margin-top: 20px;
+}
+
+
+
+.content {
+  background-color: #739AB9;
+  padding: 40px;
+  height: 60%;
+  border-radius: 20px;
+  position: relative;
+  margin-left: 50px;
+  width: 600px;
+}
+
+.text-box {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  color: #333;
+  height: 35%;
+}
+
+/* Mic Button Styling */
+.mic-button {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  width: 80px;
+  height: 80px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mic-button i {
+  font-size: 32px;
+  color: #fff;
+}
+
+
+.button-89 {
+  --b: 3px;   /* border thickness */
+  --s: .45em; /* size of the corner */
+  --color: #373B44;
   
-  /* Header */
-  header {
-    background-color: #fff;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  #nav {
-    display: flex;
-    justify-content: space-between;
-    width: 1200px;
-    gap: 50px;
-  }
-  
-  .logo {
-    width: 50px;
-  }
-  
-  main {
-    width: 100%;
-  }
-  
-  .nav-links {
-    list-style: none;
-    margin-top: 15px;
-    display: flex;
-  }
-  
-  .nav-links li {
-    margin-right: 20px;
-  }
-  
-  .nav-links a {
-    text-decoration: none;
-    color: #000;
-    font-size: 16px;
-  }
-  
-  /* Main Section */
-  .container {
-    display: flex;
-    height: 100%;
-    margin-top: 100px;
-    margin-left: 50px;
-    width: 1200px;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .sidebar {
-    background-color: #E0E0E0;
-    padding: 30px;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .icon {
-    margin-bottom: 30px;
-  }
-  
-  .icon img {
-    width: 50px;
-  }
-  
-  .content {
-    background-color: #739AB9;
-    padding: 40px;
-    border-radius: 20px;
-    position: relative;
-    margin-left: 50px;
-    width: 600px;
-  }
-  
-  .text-box {
-    background-color: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    color: #333;
-  }
-  
-  /* Mic Button Styling */
-  .mic-button {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    width: 80px;
-    height: 80px;
-    background-color: #333;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .mic-button i {
-    font-size: 32px;
-    color: #fff;
-  }
-  
+  padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+  color: var(--color);
+  --_p: var(--s);
+  background:
+    conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+    var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+  transition: .3s linear, color 0s, background-color 0s;
+  outline: var(--b) solid #0000;
+  outline-offset: .6em;
+  font-size: 16px;
+  border: 0;
+
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-89:hover,
+.button-89:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+
+}
+
+.button-89:active {
+  background: var(--color);
+  color:#fff;
+}
+
+/* .btn{
+  margin-left: 40%;
+  margin-top: 50px;
+} */
+
+/* Original Styles remain unchanged */
+
+/* Media Queries for Responsiveness */
+
+
+/* For tablets and small screens (max-width: 768px) */
+@media (max-width: 768px) {
+/* Adjust container width and spacing */
+#nav {
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links {
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.container {
+  width: 100%;
+  padding: 20px;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar, .content {
+  width: 100%;
+  max-width: 90%;
+  margin-left: 0;
+}
+
+.sidebar {
+  height: auto;
+  padding: 20px;
+}
+
+.content {
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.mic-button {
+  width: 70px;
+  height: 70px;
+  font-size: 28px;
+}
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+}
+
+/* For mobile phones (max-width: 480px) */
+@media (max-width: 480px) {
+/* Adjust navigation links and logo size */
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+.nav-links li a {
+  font-size: 16px;
+}
+
+/* Adjust layout for mobile */
+.container {
+  flex-direction: column;
+  padding: 15px;
+  align-items: center;
+}
+
+.sidebar, .content {
+  width: 100%;
+  max-width: 95%;
+  margin-left: 0;
+}
+
+.sidebar {
+  padding: 15px;
+  height: auto;
+}
+
+.content {
+  padding: 15px;
+}
+
+.mic-button {
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+}
+
+.button-89 {
+  font-size: 14px;
+  padding: 10px;
+}
+}
